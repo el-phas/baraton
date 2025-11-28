@@ -13,11 +13,41 @@ CORS whitelist: [
   'https://baratonhotel-a9qp.vercel.app',
   'https://admincreater.vercel.app'
 ]
-(node:6366) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+(node:7535) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
 (Use `node --trace-deprecation ...` to show where the warning was created)
-{"timestamp":"2025-11-28T07:06:09.521Z","level":"ERROR","message":"Database connection failed","data":{"error":"connect ECONNREFUSED 127.0.0.1:3306","host":"127.0.0.1","database":"baraton_dev"}}
-{"timestamp":"2025-11-28T07:06:09.524Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
-{"timestamp":"2025-11-28T07:10:29.371Z","level":"INFO","message":"[POST] /api/payments/initiate","data":{"method":"POST","path":"/api/payments/initiate","url":"/api/payments/initiate","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'users' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Lodgings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Lodgings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'LodgingBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `LodgingBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Conferences' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Conferences`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ConferenceBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ConferenceBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Payments' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Payments`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'EmailQueues' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): CREATE TABLE IF NOT EXISTS `EmailQueues` (`id` INTEGER auto_increment , `to` VARCHAR(255) NOT NULL, `subject` VARCHAR(255) NOT NULL, `text` TEXT, `html` TEXT, `attachments` JSON, `attempts` INTEGER DEFAULT 0, `lastError` TEXT, `status` VARCHAR(255) DEFAULT 'queued', `scheduledAt` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `EmailQueues`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ContactMessages' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ContactMessages`
+{"timestamp":"2025-11-28T08:08:50.418Z","level":"INFO","message":"Database synced successfully"}
+✉️ [EmailWorker] started, polling every 5000 ms
+{"timestamp":"2025-11-28T08:08:50.421Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+{"timestamp":"2025-11-28T08:09:50.572Z","level":"INFO","message":"[POST] /api/payments/initiate","data":{"method":"POST","path":"/api/payments/initiate","url":"/api/payments/initiate","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
 📨 [initiatePayment] Incoming request: {
   amount: 10000,
   email: 'test.user@example.com',
@@ -34,19 +64,19 @@ CORS whitelist: [
 }
 🔗 [initiatePayment] Initializing transaction with Paystack...
 ✅ [initiatePayment] Paystack responded: {
-  authorization_url: 'https://checkout.paystack.com/607siok6zo7levu',
-  access_code: '607siok6zo7levu',
-  reference: 'BOB-1764313829382'
+  authorization_url: 'https://checkout.paystack.com/d6qtv8p97pi6579',
+  access_code: 'd6qtv8p97pi6579',
+  reference: 'BOB-1764317390582'
 }
 💾 [initiatePayment] Creating pending payment record in DB...
 Executing (default): INSERT INTO `Payments` (`id`,`booking_id`,`booking_type`,`amount`,`status`,`metadata`,`reference`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
 ✅ [initiatePayment] Payment record created: {
-  id: 2,
+  id: 3,
   booking_id: 1,
   booking_type: 'lodging',
   amount: 10000,
   status: 'pending',
-  reference: 'BOB-1764313829382',
+  reference: 'BOB-1764317390582',
   metadata: {
     id: 1,
     name: 'Deluxe Room',
@@ -55,35 +85,479 @@ Executing (default): INSERT INTO `Payments` (`id`,`booking_id`,`booking_type`,`a
     occupancy: 2,
     price: 100
   },
-  updatedAt: 2025-11-28T07:10:29.933Z,
-  createdAt: 2025-11-28T07:10:29.933Z
+  updatedAt: 2025-11-28T08:09:51.430Z,
+  createdAt: 2025-11-28T08:09:51.430Z
 }
-{"timestamp":"2025-11-28T07:10:30.026Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"655ms","responseBody":{"authorization_url":"https://checkout.paystack.com/607siok6zo7levu","access_code":"607siok6zo7levu","reference":"BOB-1764313829382","payment":{"id":2,"booking_id":1,"booking_type":"lodging","amount":10000,"status":"pending","reference":"BOB-1764313829382","metadata":{"id":1,"name":"Deluxe Room","type":"lodging","room_type":"standard","occupancy":2,"price":100},"updatedAt":"2025-11-28T07:10:29.933Z","createdAt":"2025-11-28T07:10:29.933Z"}}}}
-{"timestamp":"2025-11-28T07:10:30.026Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"655ms"}}
-{"timestamp":"2025-11-28T07:10:52.326Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T08:09:51.442Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"871ms","responseBody":{"authorization_url":"https://checkout.paystack.com/d6qtv8p97pi6579","access_code":"d6qtv8p97pi6579","reference":"BOB-1764317390582","payment":{"id":3,"booking_id":1,"booking_type":"lodging","amount":10000,"status":"pending","reference":"BOB-1764317390582","metadata":{"id":1,"name":"Deluxe Room","type":"lodging","room_type":"standard","occupancy":2,"price":100},"updatedAt":"2025-11-28T08:09:51.430Z","createdAt":"2025-11-28T08:09:51.430Z"}}}}
+{"timestamp":"2025-11-28T08:09:51.442Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"871ms"}}
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+{"timestamp":"2025-11-28T08:10:05.961Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
 📩 [Webhook] Received Paystack event
 📨 [Webhook] Event parsed: charge.success
-💳 [Webhook] Payment status for BOB-1764313829382: success
-🔔 [Webhook] Successful payment received for reference: BOB-1764313829382
+💳 [Webhook] Payment status for BOB-1764317390582: success
+🔔 [Webhook] Successful payment received for reference: BOB-1764317390582
 Executing (default): UPDATE `Payments` SET `status`=?,`updatedAt`=? WHERE `reference` = ?
-Executing (default): SELECT `id`, `booking_id`, `booking_type`, `amount`, `status`, `metadata`, `reference`, `createdAt`, `updatedAt` FROM `Payments` AS `Payment` WHERE `Payment`.`reference` = 'BOB-1764313829382' LIMIT 1;
+Executing (default): SELECT `id`, `booking_id`, `booking_type`, `amount`, `status`, `metadata`, `reference`, `createdAt`, `updatedAt` FROM `Payments` AS `Payment` WHERE `Payment`.`reference` = 'BOB-1764317390582' LIMIT 1;
 � [Webhook] Updating booking ID 1 (type: lodging) to confirmed
 Executing (default): UPDATE `LodgingBookings` SET `status`=?,`updatedAt`=? WHERE `id` = ?
 ✅ [Webhook] LodgingBooking #1 confirmed
 Executing (default): SELECT `id`, `lodging_id`, `start_date`, `end_date`, `guests`, `guest_name`, `guest_email`, `guest_phone`, `special_requests`, `status`, `reference`, `room_name`, `room_type`, `room_occupancy`, `room_price`, `room_amenities`, `room_image_urls`, `room_description`, `createdAt`, `updatedAt`, `UserId`, `LodgingId` FROM `LodgingBookings` AS `LodgingBooking` WHERE `LodgingBooking`.`id` = 1;
-✉️ [Webhook] SMTP not configured; email content:
- Hello Test User,
+Executing (default): INSERT INTO `EmailQueues` (`id`,`to`,`subject`,`text`,`html`,`attachments`,`attempts`,`status`,`scheduledAt`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?);
+✉️ [Webhook] Enqueued confirmation email for test.user@example.com
+{"timestamp":"2025-11-28T08:10:06.004Z","level":"INFO","message":"[POST] /api/webhook - Status 200","data":{"statusCode":200,"duration":"43ms"}}
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+✉️ [EmailWorker] SMTP not configured. Email contents:  {
+  from: 'no-reply@baraton.local',
+  to: 'test.user@example.com',
+  subject: 'Booking Confirmed — Reference BOB-1764317390582',
+  text: 'Hello Test User,\n' +
+    '\n' +
+    'Your lodging booking (reference: BOB-1764317390582) has been confirmed.\n' +
+    '\n' +
+    'Thank you for booking with us.',
+  html: '<p>Hello Test User,</p><p>Your lodging booking (reference: <strong>BOB-1764317390582</strong>) has been confirmed.</p><p>Room: <strong>Deluxe Room</strong></p><p>Start: Mon Dec 01 2025 00:00:00 GMT+0000 (Coordinated Universal Time) — End: Wed Dec 03 2025 00:00:00 GMT+0000 (Coordinated Universal Time)</p><p>Amount paid: 10000</p><p>Thank you for booking with us.</p>',
+  attachments: [
+    {
+      filename: 'invoice-BOB-1764317390582.pdf',
+      content: <Buffer 25 50 44 46 2d 31 2e 33 0a 25 ff ff ff ff 0a 37 20 30 20 6f 62 6a 0a 3c 3c 0a 2f 54 79 70 65 20 2f 50 61 67 65 0a 2f 50 61 72 65 6e 74 20 31 20 30 20 ... 1617 more bytes>,
+      contentType: 'application/pdf'
+    }
+  ]
+}
+Executing (default): UPDATE `EmailQueues` SET `status`=?,`attempts`=?,`updatedAt`=? WHERE `id` = ?
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/app.js`[39m
+CORS whitelist: [
+  'https://baratonhotel.vercel.app',
+  'https://baratonhotel-a9qp-c91rozmfg-elphas-simiyus-projects.vercel.app',
+  'https://baratonhotel-a9qp.vercel.app',
+  'https://admincreater.vercel.app'
+]
+(node:19127) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'users' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Lodgings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Lodgings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'LodgingBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `LodgingBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Conferences' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Conferences`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ConferenceBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ConferenceBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Payments' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Payments`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'EmailQueues' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `EmailQueues`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ContactMessages' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ContactMessages`
+{"timestamp":"2025-11-28T08:23:53.808Z","level":"INFO","message":"Database synced successfully"}
+✉️ [EmailWorker] started, polling every 5000 ms
+{"timestamp":"2025-11-28T08:23:53.810Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/app.js`[39m
+CORS whitelist: [
+  'https://baratonhotel.vercel.app',
+  'https://baratonhotel-a9qp-c91rozmfg-elphas-simiyus-projects.vercel.app',
+  'https://baratonhotel-a9qp.vercel.app',
+  'https://admincreater.vercel.app'
+]
+(node:19357) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'users' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Lodgings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Lodgings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'LodgingBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `LodgingBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Conferences' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Conferences`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ConferenceBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ConferenceBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Payments' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Payments`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'EmailQueues' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `EmailQueues`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ContactMessages' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ContactMessages`
+{"timestamp":"2025-11-28T08:24:12.219Z","level":"INFO","message":"Database synced successfully"}
+✉️ [EmailWorker] started, polling every 5000 ms
+{"timestamp":"2025-11-28T08:24:12.221Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/app.js`[39m
+CORS whitelist: [
+  'https://baratonhotel.vercel.app',
+  'https://baratonhotel-a9qp-c91rozmfg-elphas-simiyus-projects.vercel.app',
+  'https://baratonhotel-a9qp.vercel.app',
+  'https://admincreater.vercel.app'
+]
+(node:19432) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'users' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Lodgings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Lodgings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'LodgingBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `LodgingBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Conferences' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Conferences`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ConferenceBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ConferenceBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Payments' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Payments`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'EmailQueues' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `EmailQueues`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ContactMessages' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ContactMessages`
+{"timestamp":"2025-11-28T08:24:17.432Z","level":"INFO","message":"Database synced successfully"}
+✉️ [EmailWorker] started, polling every 5000 ms
+{"timestamp":"2025-11-28T08:24:17.434Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/app.js`[39m
+node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
 
-Your lodging booking (reference: BOB-1764313829382) has been confirmed.
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'bull' imported from /workspaces/baraton/backend/src/queues/redisEmailQueue.js
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:internal/modules/esm/resolve:767:81)
+    at moduleResolve (node:internal/modules/esm/resolve:853:18)
+    at defaultResolve (node:internal/modules/esm/resolve:983:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
 
-Booking details:
-- Room: Deluxe Room
-- Type: standard
-- Occupancy: 2
-- Start: Mon Dec 01 2025 00:00:00 GMT+0000 (Coordinated Universal Time)
-- End: Wed Dec 03 2025 00:00:00 GMT+0000 (Coordinated Universal Time)
-- Amount paid: 10000
+Node.js v22.21.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/app.js`[39m
+node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
 
-Thank you for booking with us.
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'bull' imported from /workspaces/baraton/backend/src/queues/redisEmailQueue.js
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:internal/modules/esm/resolve:767:81)
+    at moduleResolve (node:internal/modules/esm/resolve:853:18)
+    at defaultResolve (node:internal/modules/esm/resolve:983:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
 
-{"timestamp":"2025-11-28T07:10:52.355Z","level":"INFO","message":"[POST] /api/webhook - Status 200","data":{"statusCode":200,"duration":"29ms"}}
+Node.js v22.21.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/app.js`[39m
+node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'bull' imported from /workspaces/baraton/backend/src/queues/redisEmailQueue.js
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:internal/modules/esm/resolve:767:81)
+    at moduleResolve (node:internal/modules/esm/resolve:853:18)
+    at defaultResolve (node:internal/modules/esm/resolve:983:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v22.21.1
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/app.js`[39m
+CORS whitelist: [
+  'https://baratonhotel.vercel.app',
+  'https://baratonhotel-a9qp-c91rozmfg-elphas-simiyus-projects.vercel.app',
+  'https://baratonhotel-a9qp.vercel.app',
+  'https://admincreater.vercel.app'
+]
+(node:20503) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'users' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Lodgings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Lodgings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'LodgingBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `LodgingBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Conferences' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Conferences`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ConferenceBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ConferenceBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Payments' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Payments`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'EmailQueues' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `EmailQueues`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ContactMessages' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ContactMessages`
+{"timestamp":"2025-11-28T08:26:12.195Z","level":"INFO","message":"Database synced successfully"}
+✉️ [EmailWorker] started, polling every 5000 ms
+{"timestamp":"2025-11-28T08:26:12.197Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+{"timestamp":"2025-11-28T08:29:20.183Z","level":"INFO","message":"[POST] /api/test-email","data":{"method":"POST","path":"/api/test-email","url":"/api/test-email","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T08:29:20.195Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"12ms","responseBody":{"error":"SMTP not configured"}}}
+{"timestamp":"2025-11-28T08:29:20.196Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"13ms"}}
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+{"timestamp":"2025-11-28T08:29:41.473Z","level":"INFO","message":"[POST] /api/test-email","data":{"method":"POST","path":"/api/test-email","url":"/api/test-email","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T08:29:41.475Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"2ms","responseBody":{"error":"SMTP not configured"}}}
+{"timestamp":"2025-11-28T08:29:41.476Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"3ms"}}
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;
+Executing (default): SELECT `id`, `to`, `subject`, `text`, `html`, `attachments`, `attempts`, `lastError`, `status`, `scheduledAt`, `createdAt`, `updatedAt` FROM `EmailQueues` AS `EmailQueue` WHERE `EmailQueue`.`status` = 'queued' AND `EmailQueue`.`scheduledAt` IS NULL ORDER BY `EmailQueue`.`createdAt` ASC LIMIT 1;

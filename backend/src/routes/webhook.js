@@ -6,6 +6,7 @@ import LodgingBooking from '../models/lodgingBooking.js';
 import ConferenceBooking from '../models/conferenceBooking.js';
 import nodemailer from 'nodemailer';
 import EmailQueue from '../models/emailQueue.js';
+import { enqueueEmailRedis } from '../queues/redisEmailQueue.js';
 import { generateInvoicePdf } from '../utils/invoice.js';
 
 const router = express.Router();
@@ -77,18 +78,27 @@ router.post('/', express.raw({ type: 'application/json' }), async (req, res) => 
                   } catch (err) {
                     console.error('✉️ [Webhook] Failed to generate invoice PDF:', err.message || err);
                   }
-
-                  await EmailQueue.create({
-                    to: guestEmail,
-                    subject,
-                    text,
-                    html,
-                    attachments,
-                    attempts: 0,
-                    status: 'queued',
-                    scheduledAt: null,
-                  });
-                  console.log(`✉️ [Webhook] Enqueued confirmation email for ${guestEmail}`);
+                  
+                  // If Redis is configured, also add to the Redis-backed queue for immediate processing
+                  try {
+                    const dbItem = await EmailQueue.create({
+                      to: guestEmail,
+                      subject,
+                      text,
+                      html,
+                      attachments,
+                      attempts: 0,
+                      status: 'queued',
+                      scheduledAt: null,
+                    });
+                    if (process.env.REDIS_HOST || process.env.REDIS_URL) {
+                      // include dbId so the worker can update the DB record status
+                      await enqueueEmailRedis({ ...dbItem.toJSON(), dbId: dbItem.id });
+                    }
+                    console.log(`✉️ [Webhook] Enqueued confirmation email for ${guestEmail}`);
+                  } catch (err) {
+                    console.error('✉️ [Webhook] Error creating/enqueuing email:', err.message || err);
+                  }
                 } else {
                   console.log('✉️ [Webhook] No guest email available to enqueue confirmation');
                 }
@@ -120,17 +130,24 @@ router.post('/', express.raw({ type: 'application/json' }), async (req, res) => 
                     console.error('✉️ [Webhook] Failed to generate invoice PDF:', err.message || err);
                   }
 
-                  await EmailQueue.create({
-                    to: guestEmail,
-                    subject,
-                    text,
-                    html,
-                    attachments,
-                    attempts: 0,
-                    status: 'queued',
-                    scheduledAt: null,
-                  });
-                  console.log(`✉️ [Webhook] Enqueued confirmation email for ${guestEmail}`);
+                  try {
+                    const dbItem = await EmailQueue.create({
+                      to: guestEmail,
+                      subject,
+                      text,
+                      html,
+                      attachments,
+                      attempts: 0,
+                      status: 'queued',
+                      scheduledAt: null,
+                    });
+                    if (process.env.REDIS_HOST || process.env.REDIS_URL) {
+                      await enqueueEmailRedis({ ...dbItem.toJSON(), dbId: dbItem.id });
+                    }
+                    console.log(`✉️ [Webhook] Enqueued confirmation email for ${guestEmail}`);
+                  } catch (err) {
+                    console.error('✉️ [Webhook] Error creating/enqueuing email:', err.message || err);
+                  }
                 } else {
                   console.log('✉️ [Webhook] No guest email available to enqueue confirmation');
                 }

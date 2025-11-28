@@ -1,8 +1,6 @@
 import nodemailer from 'nodemailer';
 import EmailQueue from '../models/emailQueue.js';
-import Payment from '../models/payment.js';
-import LodgingBooking from '../models/lodgingBooking.js';
-import ConferenceBooking from '../models/conferenceBooking.js';
+import { processEmailRedis } from '../queues/redisEmailQueue.js';
 import { generateInvoicePdf } from '../utils/invoice.js';
 
 const POLL_INTERVAL = Number(process.env.EMAIL_WORKER_INTERVAL_MS || 5000);
@@ -26,48 +24,77 @@ function createTransporter() {
   return null;
 }
 
-async function processOne(queueItem, transporter) {
+async function sendMailPayload(payload, transporter, metaDbItem = null) {
   try {
     const mailOptions = {
       from: process.env.EMAIL_FROM || 'no-reply@baraton.local',
-      to: queueItem.to,
-      subject: queueItem.subject,
-      text: queueItem.text || undefined,
-      html: queueItem.html || undefined,
+      to: payload.to,
+      subject: payload.subject,
+      text: payload.text || undefined,
+      html: payload.html || undefined,
     };
 
-    // attach invoice if requested and payment/booking available
-    if (queueItem.attachments && Array.isArray(queueItem.attachments) && queueItem.attachments.length) {
-      mailOptions.attachments = queueItem.attachments.map(a => ({ filename: a.filename, content: Buffer.from(a.content, 'base64'), contentType: a.contentType }));
+    if (payload.attachments && Array.isArray(payload.attachments) && payload.attachments.length) {
+      mailOptions.attachments = payload.attachments.map(a => ({ filename: a.filename, content: Buffer.from(a.content, 'base64'), contentType: a.contentType }));
     }
 
     if (!transporter) {
       console.log('✉️ [EmailWorker] SMTP not configured. Email contents: ', mailOptions);
-      await queueItem.update({ status: 'sent', attempts: queueItem.attempts + 1 });
+      if (metaDbItem) await metaDbItem.update({ status: 'sent', attempts: (metaDbItem.attempts || 0) + 1 });
       return;
     }
 
     const info = await transporter.sendMail(mailOptions);
     console.log('✉️ [EmailWorker] Sent:', info.messageId || info);
-    await queueItem.update({ status: 'sent', attempts: queueItem.attempts + 1, lastError: null });
+    if (metaDbItem) await metaDbItem.update({ status: 'sent', attempts: (metaDbItem.attempts || 0) + 1, lastError: null });
   } catch (err) {
     console.error('✉️ [EmailWorker] Send error:', err.message || err);
-    const attempts = (queueItem.attempts || 0) + 1;
-    const next = new Date(Date.now() + Math.min(60 * 60 * 1000, Math.pow(2, attempts) * 1000));
-    const status = attempts >= MAX_ATTEMPTS ? 'failed' : 'queued';
-    await queueItem.update({ attempts, lastError: String(err.message || err), scheduledAt: next, status });
+    if (metaDbItem) {
+      const attempts = (metaDbItem.attempts || 0) + 1;
+      const next = new Date(Date.now() + Math.min(60 * 60 * 1000, Math.pow(2, attempts) * 1000));
+      const status = attempts >= MAX_ATTEMPTS ? 'failed' : 'queued';
+      await metaDbItem.update({ attempts, lastError: String(err.message || err), scheduledAt: next, status });
+    }
+    throw err;
   }
 }
 
 export function startEmailWorker() {
   const transporter = createTransporter();
 
+  // If Redis is configured, use Bull-backed queue processor
+  if (process.env.REDIS_HOST || process.env.REDIS_URL) {
+    try {
+      processEmailRedis(async (payload) => {
+        // payload may include a `dbId` we can use to update metadata in the DB
+        let dbItem = null;
+        if (payload.dbId) {
+          try { dbItem = await EmailQueue.findByPk(payload.dbId); } catch (e) { /* ignore */ }
+        }
+        await sendMailPayload(payload, transporter, dbItem);
+      });
+      console.log('✉️ [EmailWorker] Using Redis-backed queue (Bull)');
+      return;
+    } catch (err) {
+      console.error('✉️ [EmailWorker] Failed to initialize Redis queue processor:', err.message || err);
+      // fall through to DB polling fallback
+    }
+  }
+
+  // DB polling fallback (existing behavior)
   setInterval(async () => {
     try {
-      const now = new Date();
       const nextItem = await EmailQueue.findOne({ where: { status: 'queued', scheduledAt: null }, order: [['createdAt', 'ASC']] });
       if (!nextItem) return;
-      await processOne(nextItem, transporter);
+      const payload = {
+        to: nextItem.to,
+        subject: nextItem.subject,
+        text: nextItem.text,
+        html: nextItem.html,
+        attachments: nextItem.attachments,
+        dbId: nextItem.id,
+      };
+      await sendMailPayload(payload, transporter, nextItem);
     } catch (err) {
       console.error('✉️ [EmailWorker] Poll error:', err.message || err);
     }

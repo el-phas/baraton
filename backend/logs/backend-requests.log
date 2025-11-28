@@ -79,3 +79,25 @@
 {"timestamp":"2025-11-28T07:10:30.026Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"655ms"}}
 {"timestamp":"2025-11-28T07:10:52.326Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
 {"timestamp":"2025-11-28T07:10:52.355Z","level":"INFO","message":"[POST] /api/webhook - Status 200","data":{"statusCode":200,"duration":"29ms"}}
+{"timestamp":"2025-11-28T08:08:50.418Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T08:08:50.421Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T08:09:50.572Z","level":"INFO","message":"[POST] /api/payments/initiate","data":{"method":"POST","path":"/api/payments/initiate","url":"/api/payments/initiate","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T08:09:51.442Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"871ms","responseBody":{"authorization_url":"https://checkout.paystack.com/d6qtv8p97pi6579","access_code":"d6qtv8p97pi6579","reference":"BOB-1764317390582","payment":{"id":3,"booking_id":1,"booking_type":"lodging","amount":10000,"status":"pending","reference":"BOB-1764317390582","metadata":{"id":1,"name":"Deluxe Room","type":"lodging","room_type":"standard","occupancy":2,"price":100},"updatedAt":"2025-11-28T08:09:51.430Z","createdAt":"2025-11-28T08:09:51.430Z"}}}}
+{"timestamp":"2025-11-28T08:09:51.442Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"871ms"}}
+{"timestamp":"2025-11-28T08:10:05.961Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T08:10:06.004Z","level":"INFO","message":"[POST] /api/webhook - Status 200","data":{"statusCode":200,"duration":"43ms"}}
+{"timestamp":"2025-11-28T08:23:53.808Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T08:23:53.810Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T08:24:12.219Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T08:24:12.221Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T08:24:17.432Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T08:24:17.434Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T08:26:12.195Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T08:26:12.197Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T08:28:45.048Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T08:29:20.183Z","level":"INFO","message":"[POST] /api/test-email","data":{"method":"POST","path":"/api/test-email","url":"/api/test-email","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T08:29:20.195Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"12ms","responseBody":{"error":"SMTP not configured"}}}
+{"timestamp":"2025-11-28T08:29:20.196Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"13ms"}}
+{"timestamp":"2025-11-28T08:29:41.473Z","level":"INFO","message":"[POST] /api/test-email","data":{"method":"POST","path":"/api/test-email","url":"/api/test-email","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T08:29:41.475Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"2ms","responseBody":{"error":"SMTP not configured"}}}
+{"timestamp":"2025-11-28T08:29:41.476Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"3ms"}}
