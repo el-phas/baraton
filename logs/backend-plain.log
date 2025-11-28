@@ -1,0 +1,32 @@
+CORS whitelist: [
+  'https://baratonhotel.vercel.app',
+  'https://baratonhotel-a9qp-c91rozmfg-elphas-simiyus-projects.vercel.app',
+  'https://baratonhotel-a9qp.vercel.app',
+  'https://admincreater.vercel.app'
+]
+(node:66948) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'users' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Lodgings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Lodgings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'LodgingBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `LodgingBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Conferences' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Conferences`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ConferenceBookings' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ConferenceBookings`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Payments' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `Payments`
+Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ContactMessages' AND TABLE_SCHEMA = 'baraton_dev'
+Executing (default): SHOW INDEX FROM `ContactMessages`
+{"timestamp":"2025-11-28T05:47:03.884Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T05:47:03.886Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T05:47:32.150Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
+📩 [Webhook] Received Paystack event
+❌ [Webhook] Invalid signature
+{"timestamp":"2025-11-28T05:47:32.153Z","level":"WARN","message":"[POST] /api/webhook - Status 400","data":{"statusCode":400,"duration":"4ms"}}
+{"timestamp":"2025-11-28T05:48:18.219Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
+📩 [Webhook] Received Paystack event
+❌ [Webhook] Invalid signature
+{"timestamp":"2025-11-28T05:48:18.221Z","level":"WARN","message":"[POST] /api/webhook - Status 400","data":{"statusCode":400,"duration":"2ms"}}
