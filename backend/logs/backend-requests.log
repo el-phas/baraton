@@ -101,3 +101,5 @@
 {"timestamp":"2025-11-28T08:29:41.473Z","level":"INFO","message":"[POST] /api/test-email","data":{"method":"POST","path":"/api/test-email","url":"/api/test-email","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
 {"timestamp":"2025-11-28T08:29:41.475Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"2ms","responseBody":{"error":"SMTP not configured"}}}
 {"timestamp":"2025-11-28T08:29:41.476Z","level":"WARN","message":"[POST] /api/test-email - Status 400","data":{"statusCode":400,"duration":"3ms"}}
+{"timestamp":"2025-11-28T08:35:35.061Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T08:35:35.063Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
