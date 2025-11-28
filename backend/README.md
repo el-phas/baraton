@@ -135,4 +135,43 @@ baraton-backend/
 * Always keep your API keys and secrets out of the frontend.
 * Secure your webhook endpoint by verifying the Paystack signature.
 
+
+## ✉️ Email (SMTP) Configuration & Invoicing
+
+This backend supports sending booking confirmation emails with a generated PDF invoice. Emails are queued in the database and processed by a background worker with retry logic.
+
+Environment variables to configure SMTP (add to `backend/.env`):
+
+```
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your_smtp_username
+SMTP_PASS=your_smtp_password
+SMTP_SECURE=false # true for port 465
+EMAIL_FROM="Baraton <no-reply@yourdomain.com>"
+```
+
+If SMTP is not configured the worker will log the email content (useful for development). Once SMTP credentials are provided, the worker will send emails and automatically retry failed sends.
+
+### Test email endpoint
+
+You can test SMTP by calling the test route:
+
+```bash
+curl -X POST http://localhost:5000/api/test-email \
+	-H 'Content-Type: application/json' \
+	-d '{"to":"you@example.com","subject":"Test","text":"Hello"}'
+```
+
+### Migrations
+
+We added migrations to support `Payments.metadata` and the `EmailQueues` table. If you use migrations instead of `sequelize.sync`, run:
+
+```bash
+# Using sequelize-cli (if configured):
+npx sequelize db:migrate
+```
+
+If you rely on `sequelize.sync()` (development), the tables will be created automatically when the server starts.
+
 ---
