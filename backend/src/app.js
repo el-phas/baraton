@@ -18,6 +18,7 @@ import { errorHandler } from './middlewares/errorHandler.js';
 import { requestLogger } from './middlewares/requestLogger.js';
 import { sequelize } from './config/db.js';
 import { logger } from './utils/logger.js';
+import { startEmailWorker } from './workers/emailWorker.js';
 
 dotenv.config();
 
@@ -80,6 +81,12 @@ const PORT = process.env.PORT || 5000;
   try {
     await sequelize.sync();
     logger.info('Database synced successfully');
+    // Start background email worker after DB sync so the EmailQueue model exists
+    try {
+      startEmailWorker();
+    } catch (err) {
+      logger.error('Failed to start email worker', { error: err.message || err });
+    }
   } catch (err) {
     logger.error('Database connection failed', { 
       error: err.message || err,
