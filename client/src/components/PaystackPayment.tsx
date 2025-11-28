@@ -82,12 +82,25 @@ const PaystackPayment = React.forwardRef(({ amount, email, bookingData, onSucces
         throw new Error('Invalid payment amount');
       }
 
+      // Prepare a compact booking snapshot to send to the backend / Paystack metadata
+      const bookingSnapshot = {
+        id: bookingData.booking_id || bookingData.room_id || bookingData.lodging_id || bookingData.conference_id,
+        name: bookingData.room_name || bookingData.conference_name || bookingData.name || null,
+        type: bookingData.type || (bookingData.room_name ? 'lodging' : 'conference'),
+        room_type: bookingData.room_type || null,
+        occupancy: bookingData.room_occupancy || bookingData.occupancy || null,
+        size: bookingData.room_size || bookingData.size || null,
+        price: bookingData.room_price || bookingData.conference_price || bookingData.price || null,
+        amenities: bookingData.room_amenities || bookingData.conference_amenities || null,
+      };
+
       const res = await axios.post(paymentUrl, {
         amount: paystackAmount,
         email: sanitizeInput(email.toLowerCase().trim()),
-        booking_id: bookingData.booking_id || bookingData.room_id || bookingData.lodging_id || bookingData.conference_id,
-        booking_type: bookingData.type || 'conference',
-        reference: bookingData.reference
+        booking_id: bookingSnapshot.id,
+        booking_type: bookingSnapshot.type,
+        reference: bookingData.reference,
+        booking_snapshot: bookingSnapshot,
       });
       const data = res.data;
       if (data?.authorization_url) {

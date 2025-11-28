@@ -70,3 +70,12 @@
 {"timestamp":"2025-11-28T05:47:32.153Z","level":"WARN","message":"[POST] /api/webhook - Status 400","data":{"statusCode":400,"duration":"4ms"}}
 {"timestamp":"2025-11-28T05:48:18.219Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
 {"timestamp":"2025-11-28T05:48:18.221Z","level":"WARN","message":"[POST] /api/webhook - Status 400","data":{"statusCode":400,"duration":"2ms"}}
+{"timestamp":"2025-11-28T06:54:28.764Z","level":"INFO","message":"Database synced successfully"}
+{"timestamp":"2025-11-28T06:54:28.769Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T07:06:09.521Z","level":"ERROR","message":"Database connection failed","data":{"error":"connect ECONNREFUSED 127.0.0.1:3306","host":"127.0.0.1","database":"baraton_dev"}}
+{"timestamp":"2025-11-28T07:06:09.524Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T07:10:29.371Z","level":"INFO","message":"[POST] /api/payments/initiate","data":{"method":"POST","path":"/api/payments/initiate","url":"/api/payments/initiate","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T07:10:30.026Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"655ms","responseBody":{"authorization_url":"https://checkout.paystack.com/607siok6zo7levu","access_code":"607siok6zo7levu","reference":"BOB-1764313829382","payment":{"id":2,"booking_id":1,"booking_type":"lodging","amount":10000,"status":"pending","reference":"BOB-1764313829382","metadata":{"id":1,"name":"Deluxe Room","type":"lodging","room_type":"standard","occupancy":2,"price":100},"updatedAt":"2025-11-28T07:10:29.933Z","createdAt":"2025-11-28T07:10:29.933Z"}}}}
+{"timestamp":"2025-11-28T07:10:30.026Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"655ms"}}
+{"timestamp":"2025-11-28T07:10:52.326Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T07:10:52.355Z","level":"INFO","message":"[POST] /api/webhook - Status 200","data":{"statusCode":200,"duration":"29ms"}}

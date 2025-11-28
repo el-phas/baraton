@@ -9,6 +9,7 @@ const Payment = sequelize.define('Payment', {
   booking_type: { type: DataTypes.STRING, allowNull: false }, // 'lodging' or 'conference'
   amount: { type: DataTypes.FLOAT, allowNull: false },
   status: { type: DataTypes.STRING, defaultValue: 'pending' },
+  metadata: { type: DataTypes.JSON, allowNull: true },
   reference: { type: DataTypes.STRING, allowNull: false },
 }, {
   timestamps: true,

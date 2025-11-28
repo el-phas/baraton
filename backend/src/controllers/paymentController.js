@@ -11,8 +11,8 @@ dotenv.config();
  */
 export const initiatePayment = async (req, res, next) => {
   try {
-    const { amount, email, booking_id, booking_type } = req.body;
-    console.log('📨 [initiatePayment] Incoming request:', { amount, email, booking_id, booking_type });
+    const { amount, email, booking_id, booking_type, booking_snapshot } = req.body;
+    console.log('📨 [initiatePayment] Incoming request:', { amount, email, booking_id, booking_type, booking_snapshot });
 
     if (!amount || !email || !booking_id || !booking_type) {
       console.warn('⚠️ Missing required fields');
@@ -27,11 +27,17 @@ export const initiatePayment = async (req, res, next) => {
     const frontendUrl = process.env.FRONTEND_URL;
 
     console.log('🔗 [initiatePayment] Initializing transaction with Paystack...');
+    // Include booking snapshot in Paystack metadata so webhook can access it easily
     const response = await paystack.transaction.initialize({
       amount,
       email,
       reference,
       callback_url: `${frontendUrl}/payment-success?reference=${reference}`,
+      metadata: {
+        booking_id,
+        booking_type,
+        booking_snapshot: booking_snapshot || null,
+      },
     });
 
     console.log('✅ [initiatePayment] Paystack responded:', response.data);
@@ -43,6 +49,7 @@ export const initiatePayment = async (req, res, next) => {
       amount,
       status: 'pending',
       reference,
+      metadata: booking_snapshot || null,
     });
 
     console.log('✅ [initiatePayment] Payment record created:', payment.toJSON());

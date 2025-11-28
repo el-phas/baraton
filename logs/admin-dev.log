@@ -1,0 +1,9 @@
+
+> baraton-admin@0.0.0 dev
+> vite --host
+
+
+  VITE v5.4.19  ready in 424 ms
+
+  ➜  Local:   http://localhost:8081/
+  ➜  Network: http://10.0.0.60:8081/

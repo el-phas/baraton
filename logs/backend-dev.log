@@ -13,153 +13,77 @@ CORS whitelist: [
   'https://baratonhotel-a9qp.vercel.app',
   'https://admincreater.vercel.app'
 ]
-(node:62889) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+(node:6366) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
 (Use `node --trace-deprecation ...` to show where the warning was created)
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'users' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `users`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Lodgings' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `Lodgings`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'LodgingBookings' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `LodgingBookings`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Conferences' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `Conferences`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ConferenceBookings' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `ConferenceBookings`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Payments' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `Payments`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ContactMessages' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `ContactMessages`
-{"timestamp":"2025-11-28T05:41:18.903Z","level":"INFO","message":"Database synced successfully"}
-{"timestamp":"2025-11-28T05:41:18.905Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
-{"timestamp":"2025-11-28T05:41:58.373Z","level":"INFO","message":"[GET] /api/lodging-bookings","data":{"method":"GET","path":"/api/lodging-bookings","url":"/api/lodging-bookings","ip":"::1","userAgent":"curl/8.5.0","headers":{}}}
-Executing (default): SELECT `id`, `lodging_id`, `start_date`, `end_date`, `guests`, `guest_name`, `guest_email`, `guest_phone`, `special_requests`, `status`, `reference`, `room_name`, `room_type`, `room_occupancy`, `room_price`, `room_amenities`, `room_image_urls`, `room_description`, `createdAt`, `updatedAt`, `UserId`, `LodgingId` FROM `LodgingBookings` AS `LodgingBooking`;
-{"timestamp":"2025-11-28T05:41:58.382Z","level":"INFO","message":"[GET] /api/lodging-bookings - Status 200","data":{"statusCode":200,"duration":"9ms","responseBody":[]}}
-{"timestamp":"2025-11-28T05:41:58.383Z","level":"INFO","message":"[GET] /api/lodging-bookings - Status 200","data":{"statusCode":200,"duration":"10ms"}}
-{"timestamp":"2025-11-28T05:42:24.134Z","level":"INFO","message":"[GET] /api/lodgings","data":{"method":"GET","path":"/api/lodgings","url":"/api/lodgings","ip":"::1","userAgent":"curl/8.5.0","headers":{}}}
-Executing (default): SELECT `id`, `name`, `type`, `occupancy`, `price`, `amenities`, `image_urls`, `description`, `created_at`, `updated_at` FROM `Lodgings` AS `Lodging`;
-{"timestamp":"2025-11-28T05:42:24.141Z","level":"INFO","message":"[GET] /api/lodgings - Status 200","data":{"statusCode":200,"duration":"7ms","responseBody":[{"id":1,"name":"Deluxe Room","type":"standard","occupancy":"2","price":100,"amenities":[],"image_urls":[],"description":"Spacious room with king bed","created_at":"2025-11-28T04:42:51.000Z","updated_at":"2025-11-28T04:42:51.000Z"},{"id":2,"name":"Standard Room","type":"standard","occupancy":"2","price":70,"amenities":[],"image_urls":[],"description":"Cozy room with queen bed","created_at":"2025-11-28T04:42:51.000Z","updated_at":"2025-11-28T04:42:51.000Z"}]}}
-{"timestamp":"2025-11-28T05:42:24.142Z","level":"INFO","message":"[GET] /api/lodgings - Status 200","data":{"statusCode":200,"duration":"8ms"}}
-{"timestamp":"2025-11-28T05:43:52.445Z","level":"INFO","message":"[POST] /api/lodging-bookings","data":{"method":"POST","path":"/api/lodging-bookings","url":"/api/lodging-bookings","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
-Executing (default): SELECT `id`, `name`, `type`, `occupancy`, `price`, `amenities`, `image_urls`, `description`, `created_at`, `updated_at` FROM `Lodgings` AS `Lodging` WHERE `Lodging`.`id` = 1;
-Executing (default): INSERT INTO `LodgingBookings` (`id`,`lodging_id`,`start_date`,`end_date`,`guests`,`guest_name`,`guest_email`,`guest_phone`,`special_requests`,`status`,`room_name`,`room_type`,`room_occupancy`,`room_price`,`room_amenities`,`room_image_urls`,`room_description`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
-{"timestamp":"2025-11-28T05:43:52.478Z","level":"INFO","message":"[POST] /api/lodging-bookings - Status 201","data":{"statusCode":201,"duration":"33ms","responseBody":{"status":"pending","id":1,"room_name":"Deluxe Room","room_type":"standard","room_occupancy":"2","room_price":100,"room_amenities":[],"room_image_urls":[],"room_description":"Spacious room with king bed","lodging_id":1,"start_date":"2025-12-01T00:00:00.000Z","end_date":"2025-12-03T00:00:00.000Z","guests":2,"guest_name":"Test User","guest_email":"test.user@example.com","guest_phone":"+254700000000","special_requests":"None","updatedAt":"2025-11-28T05:43:52.467Z","createdAt":"2025-11-28T05:43:52.467Z"}}}
-{"timestamp":"2025-11-28T05:43:52.478Z","level":"INFO","message":"[POST] /api/lodging-bookings - Status 201","data":{"statusCode":201,"duration":"33ms"}}
-{"timestamp":"2025-11-28T05:44:07.638Z","level":"INFO","message":"[POST] /api/payments/initiate","data":{"method":"POST","path":"/api/payments/initiate","url":"/api/payments/initiate","ip":"::1","userAgent":"curl/8.5.0","headers":{"content-type":"application/json"}}}
+{"timestamp":"2025-11-28T07:06:09.521Z","level":"ERROR","message":"Database connection failed","data":{"error":"connect ECONNREFUSED 127.0.0.1:3306","host":"127.0.0.1","database":"baraton_dev"}}
+{"timestamp":"2025-11-28T07:06:09.524Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+{"timestamp":"2025-11-28T07:10:29.371Z","level":"INFO","message":"[POST] /api/payments/initiate","data":{"method":"POST","path":"/api/payments/initiate","url":"/api/payments/initiate","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
 📨 [initiatePayment] Incoming request: {
   amount: 10000,
   email: 'test.user@example.com',
   booking_id: 1,
-  booking_type: 'lodging'
+  booking_type: 'lodging',
+  booking_snapshot: {
+    id: 1,
+    name: 'Deluxe Room',
+    type: 'lodging',
+    room_type: 'standard',
+    occupancy: 2,
+    price: 100
+  }
 }
-Executing (default): SELECT `id`, `lodging_id`, `start_date`, `end_date`, `guests`, `guest_name`, `guest_email`, `guest_phone`, `special_requests`, `status`, `reference`, `room_name`, `room_type`, `room_occupancy`, `room_price`, `room_amenities`, `room_image_urls`, `room_description`, `createdAt`, `updatedAt`, `UserId`, `LodgingId` FROM `LodgingBookings` AS `LodgingBooking` WHERE `LodgingBooking`.`id` = 1;
 🔗 [initiatePayment] Initializing transaction with Paystack...
 ✅ [initiatePayment] Paystack responded: {
-  authorization_url: 'https://checkout.paystack.com/g4oeysyaijx7c0v',
-  access_code: 'g4oeysyaijx7c0v',
-  reference: 'BOB-1764308647644'
+  authorization_url: 'https://checkout.paystack.com/607siok6zo7levu',
+  access_code: '607siok6zo7levu',
+  reference: 'BOB-1764313829382'
 }
 💾 [initiatePayment] Creating pending payment record in DB...
-Executing (default): INSERT INTO `Payments` (`id`,`booking_id`,`booking_type`,`amount`,`payer_email`,`metadata`,`status`,`reference`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+Executing (default): INSERT INTO `Payments` (`id`,`booking_id`,`booking_type`,`amount`,`status`,`metadata`,`reference`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
 ✅ [initiatePayment] Payment record created: {
-  id: 1,
+  id: 2,
   booking_id: 1,
   booking_type: 'lodging',
   amount: 10000,
   status: 'pending',
-  reference: 'BOB-1764308647644',
-  payer_email: 'test.user@example.com',
+  reference: 'BOB-1764313829382',
   metadata: {
-    booking_id: 1,
-    booking_type: 'lodging',
-    serverSnapshot: {
-      id: 1,
-      lodging_id: 1,
-      start_date: 2025-12-01T00:00:00.000Z,
-      end_date: 2025-12-03T00:00:00.000Z,
-      guests: 2,
-      guest_name: 'Test User',
-      guest_email: 'test.user@example.com',
-      guest_phone: '+254700000000',
-      special_requests: 'None',
-      status: 'pending',
-      reference: null,
-      room_name: 'Deluxe Room',
-      room_type: 'standard',
-      room_occupancy: '2',
-      room_price: 100,
-      room_amenities: [],
-      room_image_urls: [],
-      room_description: 'Spacious room with king bed',
-      createdAt: 2025-11-28T05:43:52.000Z,
-      updatedAt: 2025-11-28T05:43:52.000Z,
-      UserId: null,
-      LodgingId: null
-    },
-    frontendDetails: { room_type: 'standard', room_occupancy: 2 },
-    initiated_at: '2025-11-28T05:44:07.644Z'
+    id: 1,
+    name: 'Deluxe Room',
+    type: 'lodging',
+    room_type: 'standard',
+    occupancy: 2,
+    price: 100
   },
-  updatedAt: 2025-11-28T05:44:08.320Z,
-  createdAt: 2025-11-28T05:44:08.320Z
+  updatedAt: 2025-11-28T07:10:29.933Z,
+  createdAt: 2025-11-28T07:10:29.933Z
 }
-{"timestamp":"2025-11-28T05:44:08.326Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"688ms","responseBody":{"authorization_url":"https://checkout.paystack.com/g4oeysyaijx7c0v","access_code":"g4oeysyaijx7c0v","reference":"BOB-1764308647644","payment":{"id":1,"booking_id":1,"booking_type":"lodging","amount":10000,"status":"pending","reference":"BOB-1764308647644","payer_email":"test.user@example.com","metadata":{"booking_id":1,"booking_type":"lodging","serverSnapshot":{"id":1,"lodging_id":1,"start_date":"2025-12-01T00:00:00.000Z","end_date":"2025-12-03T00:00:00.000Z","guests":2,"guest_name":"Test User","guest_email":"test.user@example.com","guest_phone":"+254700000000","special_requests":"None","status":"pending","reference":null,"room_name":"Deluxe Room","room_type":"standard","room_occupancy":"2","room_price":100,"room_amenities":[],"room_image_urls":[],"room_description":"Spacious room with king bed","createdAt":"2025-11-28T05:43:52.000Z","updatedAt":"2025-11-28T05:43:52.000Z","UserId":null,"LodgingId":null},"frontendDetails":{"room_type":"standard","room_occupancy":2},"initiated_at":"2025-11-28T05:44:07.644Z"},"updatedAt":"2025-11-28T05:44:08.320Z","createdAt":"2025-11-28T05:44:08.320Z"}}}}
-{"timestamp":"2025-11-28T05:44:08.327Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"689ms"}}
-{"timestamp":"2025-11-28T05:44:39.233Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"curl/8.5.0","headers":{}}}
+{"timestamp":"2025-11-28T07:10:30.026Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"655ms","responseBody":{"authorization_url":"https://checkout.paystack.com/607siok6zo7levu","access_code":"607siok6zo7levu","reference":"BOB-1764313829382","payment":{"id":2,"booking_id":1,"booking_type":"lodging","amount":10000,"status":"pending","reference":"BOB-1764313829382","metadata":{"id":1,"name":"Deluxe Room","type":"lodging","room_type":"standard","occupancy":2,"price":100},"updatedAt":"2025-11-28T07:10:29.933Z","createdAt":"2025-11-28T07:10:29.933Z"}}}}
+{"timestamp":"2025-11-28T07:10:30.026Z","level":"INFO","message":"[POST] /api/payments/initiate - Status 200","data":{"statusCode":200,"duration":"655ms"}}
+{"timestamp":"2025-11-28T07:10:52.326Z","level":"INFO","message":"[POST] /api/webhook","data":{"method":"POST","path":"/api/webhook","url":"/api/webhook","ip":"::1","userAgent":"node","headers":{"content-type":"application/json"}}}
 📩 [Webhook] Received Paystack event
-node:internal/crypto/hash:140
-    throw new ERR_INVALID_ARG_TYPE(
-          ^
+📨 [Webhook] Event parsed: charge.success
+💳 [Webhook] Payment status for BOB-1764313829382: success
+🔔 [Webhook] Successful payment received for reference: BOB-1764313829382
+Executing (default): UPDATE `Payments` SET `status`=?,`updatedAt`=? WHERE `reference` = ?
+Executing (default): SELECT `id`, `booking_id`, `booking_type`, `amount`, `status`, `metadata`, `reference`, `createdAt`, `updatedAt` FROM `Payments` AS `Payment` WHERE `Payment`.`reference` = 'BOB-1764313829382' LIMIT 1;
+� [Webhook] Updating booking ID 1 (type: lodging) to confirmed
+Executing (default): UPDATE `LodgingBookings` SET `status`=?,`updatedAt`=? WHERE `id` = ?
+✅ [Webhook] LodgingBooking #1 confirmed
+Executing (default): SELECT `id`, `lodging_id`, `start_date`, `end_date`, `guests`, `guest_name`, `guest_email`, `guest_phone`, `special_requests`, `status`, `reference`, `room_name`, `room_type`, `room_occupancy`, `room_price`, `room_amenities`, `room_image_urls`, `room_description`, `createdAt`, `updatedAt`, `UserId`, `LodgingId` FROM `LodgingBookings` AS `LodgingBooking` WHERE `LodgingBooking`.`id` = 1;
+✉️ [Webhook] SMTP not configured; email content:
+ Hello Test User,
 
-TypeError [ERR_INVALID_ARG_TYPE]: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object
-    at Hmac.update (node:internal/crypto/hash:140:11)
-    at file:///workspaces/baraton/backend/src/routes/webhook.js:21:6
-    at Layer.handle [as handle_request] (/workspaces/baraton/backend/node_modules/express/lib/router/layer.js:95:5)
-    at next (/workspaces/baraton/backend/node_modules/express/lib/router/route.js:149:13)
-    at rawParser (/workspaces/baraton/backend/node_modules/body-parser/lib/types/raw.js:67:7)
-    at Layer.handle [as handle_request] (/workspaces/baraton/backend/node_modules/express/lib/router/layer.js:95:5)
-    at next (/workspaces/baraton/backend/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/workspaces/baraton/backend/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/workspaces/baraton/backend/node_modules/express/lib/router/layer.js:95:5)
-    at /workspaces/baraton/backend/node_modules/express/lib/router/index.js:284:15
-    at Function.process_params (/workspaces/baraton/backend/node_modules/express/lib/router/index.js:346:12)
-    at next (/workspaces/baraton/backend/node_modules/express/lib/router/index.js:280:10)
-    at Function.handle (/workspaces/baraton/backend/node_modules/express/lib/router/index.js:175:3)
-    at router (/workspaces/baraton/backend/node_modules/express/lib/router/index.js:47:12)
-    at Layer.handle [as handle_request] (/workspaces/baraton/backend/node_modules/express/lib/router/layer.js:95:5)
-    at trim_prefix (/workspaces/baraton/backend/node_modules/express/lib/router/index.js:328:13)
-    at /workspaces/baraton/backend/node_modules/express/lib/router/index.js:286:9
-    at Function.process_params (/workspaces/baraton/backend/node_modules/express/lib/router/index.js:346:12)
-    at next (/workspaces/baraton/backend/node_modules/express/lib/router/index.js:280:10)
-    at jsonParser (/workspaces/baraton/backend/node_modules/body-parser/lib/types/json.js:113:7)
-    at Layer.handle [as handle_request] (/workspaces/baraton/backend/node_modules/express/lib/router/layer.js:95:5)
-    at trim_prefix (/workspaces/baraton/backend/node_modules/express/lib/router/index.js:328:13) {
-  code: 'ERR_INVALID_ARG_TYPE'
-}
+Your lodging booking (reference: BOB-1764313829382) has been confirmed.
 
-Node.js v22.21.1
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/app.js`[39m
-CORS whitelist: [
-  'https://baratonhotel.vercel.app',
-  'https://baratonhotel-a9qp-c91rozmfg-elphas-simiyus-projects.vercel.app',
-  'https://baratonhotel-a9qp.vercel.app',
-  'https://admincreater.vercel.app'
-]
-(node:65956) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
-(Use `node --trace-deprecation ...` to show where the warning was created)
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'users' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `users`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Lodgings' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `Lodgings`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'LodgingBookings' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `LodgingBookings`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Conferences' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `Conferences`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ConferenceBookings' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `ConferenceBookings`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'Payments' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `Payments`
-Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'ContactMessages' AND TABLE_SCHEMA = 'baraton_dev'
-Executing (default): SHOW INDEX FROM `ContactMessages`
-{"timestamp":"2025-11-28T05:45:46.277Z","level":"INFO","message":"Database synced successfully"}
-{"timestamp":"2025-11-28T05:45:46.279Z","level":"INFO","message":"Server running on port 5000","data":{"port":"5000"}}
+Booking details:
+- Room: Deluxe Room
+- Type: standard
+- Occupancy: 2
+- Start: Mon Dec 01 2025 00:00:00 GMT+0000 (Coordinated Universal Time)
+- End: Wed Dec 03 2025 00:00:00 GMT+0000 (Coordinated Universal Time)
+- Amount paid: 10000
+
+Thank you for booking with us.
+
+{"timestamp":"2025-11-28T07:10:52.355Z","level":"INFO","message":"[POST] /api/webhook - Status 200","data":{"statusCode":200,"duration":"29ms"}}

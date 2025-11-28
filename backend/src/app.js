@@ -12,6 +12,7 @@ import analyticsRoutes from './routes/analyticsRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import webhookRoutes from './routes/webhook.js';
+import testEmailRoutes from './routes/testEmail.js';
 import contactRoutes from './routes/contactRoutes.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { requestLogger } from './middlewares/requestLogger.js';
@@ -68,6 +69,7 @@ app.use('/api/upload', uploadRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/webhook', webhookRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/test-email', testEmailRoutes);
 
 // Error handling
 app.use(errorHandler);
